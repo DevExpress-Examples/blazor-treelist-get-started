@@ -1,0 +1,35 @@
+﻿@page "/"
+@using GetStartedWithTreeList.Services
+@attribute [StreamRendering(true)]
+@rendermode InteractiveServer
+@inject EmployeeTaskService TaskService
+
+<DxTreeList Data="@Data"
+            KeyFieldName="Id"
+            ParentKeyFieldName="ParentId"
+            ShowFilterRow="true"
+            FilterTreeMode="TreeListFilterTreeMode.EntireBranch" >
+    <Columns>
+        <DxTreeListDataColumn FieldName="Name" Caption="Task" Width="40%" />
+        <DxTreeListDataColumn FieldName="EmployeeName"
+                              FilterRowValue='"John"'
+                              FilterRowOperatorType="TreeListFilterRowOperatorType.Contains" />
+        <DxTreeListDataColumn FieldName="StartDate" MinWidth="100" />
+        <DxTreeListDataColumn FieldName="DueDate" MinWidth="100"
+                              SortOrder="TreeListColumnSortOrder.Ascending" SortIndex="0" />
+        <DxTreeListDataColumn FieldName="Progress"
+                              SortOrder="TreeListColumnSortOrder.Descending" SortIndex="1" />
+    </Columns>
+    <TotalSummary>
+        <DxTreeListSummaryItem FieldName="Name" SummaryType="TreeListSummaryItemType.Count" />
+        <DxTreeListSummaryItem FieldName="Progress" SummaryType="TreeListSummaryItemType.Avg" />
+    </TotalSummary>
+</DxTreeList>
+
+@code {
+    List<EmployeeTask> Data { get; set; }
+
+    protected override void OnInitialized() {
+        Data = TaskService.GenerateData();
+    }
+}
