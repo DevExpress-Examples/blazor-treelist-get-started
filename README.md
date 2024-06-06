@@ -4,7 +4,7 @@
 <!-- default badges end -->
 # TreeList for Blazor - Get Started
 
-This example binds the [DevExpress Blazor TreeList](http://docs.devexpress.com/Blazor/404942/components/treelist) component to data, configures initial sorting and filtering settings, and displays total summaries.
+This example binds the [DevExpress Blazor TreeList](http://docs.devexpress.com/Blazor/404942/components/treelist) component to data, configures initial sort and filter settings, and displays total summaries.
 
 **Note**: Our Blazor TreeList component is currently available as a community technology preview ([CTP](https://www.devexpress.com/aboutus/pre-release.xml)).
 
