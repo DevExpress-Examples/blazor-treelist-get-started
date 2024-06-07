@@ -22,7 +22,7 @@ Refer to the following help topic for more information: [Getting Started with th
 
 ## Documentation
 
-- [Bind Blazor TreeList to Data](http://docs.devexpress.devx/Blazor/404976/components/tree-list/bind-to-data?v=24.1)
+- [Bind Blazor TreeList to Data](https://docs.devexpress.com/Blazor/404976/components/tree-list/bind-to-data)
 
 ## More Examples
 
