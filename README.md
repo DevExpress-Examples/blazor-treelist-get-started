@@ -2,15 +2,15 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1236217)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# TreeList for Blazor - Get Started
+# Blazor TreeList - Getting Started
 
 This example binds the [DevExpress Blazor TreeList](http://docs.devexpress.com/Blazor/404942/components/treelist) component to data, configures initial sort and filter settings, and displays total summaries.
 
-**Note**: Our Blazor TreeList component is currently available as a community technology preview ([CTP](https://www.devexpress.com/aboutus/pre-release.xml)).
+**Note**: Our Blazor TreeList component is currently available as a Community Technology Preview ([CTP](https://www.devexpress.com/aboutus/pre-release.xml)).
 
 ![Get Started with DevExpress Blazor TreeList](/blazor-treelist-get-started.png)
 
-Refer to the following topic for more information: [Get Started with Blazor TreeList](https://docs.devexpress.com/Blazor/405000/components/treelist/get-started-with-blazor-treelist).
+Refer to the following help topic for more information: [Getting Started with the Blazor TreeList](https://docs.devexpress.com/Blazor/405000/components/treelist/get-started-with-blazor-treelist).
 
 ## Files to Review
 
