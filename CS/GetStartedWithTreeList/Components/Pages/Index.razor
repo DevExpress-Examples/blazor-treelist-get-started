@@ -8,8 +8,12 @@
             KeyFieldName="Id"
             ParentKeyFieldName="ParentId"
             ShowFilterRow="true"
-            FilterTreeMode="TreeListFilterTreeMode.EntireBranch" >
+            FilterTreeMode="TreeListFilterTreeMode.EntireBranch"
+            EditModelSaving="TreeList_EditModelSaving"
+            DataItemDeleting="TreeList_DataItemDeleting"
+            CustomizeEditModel="TreeList_CustomizeEditModel">
     <Columns>
+        <DxTreeListCommandColumn Width="200px" />
         <DxTreeListDataColumn FieldName="Name" Caption="Task" Width="40%" />
         <DxTreeListDataColumn FieldName="EmployeeName"
                               FilterRowValue='"John"'
@@ -31,5 +35,22 @@
 
     protected override void OnInitialized() {
         Data = TaskService.GenerateData();
+    }
+    void TreeList_CustomizeEditModel(TreeListCustomizeEditModelEventArgs e) {
+        if (e.IsNew) {
+            var newTask = (EmployeeTask)e.EditModel;
+            newTask.Id = Data.Max(x => x.Id) + 1;
+            if (e.ParentDataItem != null)
+                newTask.ParentId = ((EmployeeTask)e.ParentDataItem).Id;
+        }
+    }
+    async Task TreeList_EditModelSaving(TreeListEditModelSavingEventArgs e) {
+        if (e.IsNew)
+            Data.Add((EmployeeTask)e.EditModel);
+        else
+            e.CopyChangesToDataItem();
+    }
+    async Task TreeList_DataItemDeleting(TreeListDataItemDeletingEventArgs e) {
+        Data.Remove((EmployeeTask)e.DataItem);
     }
 }

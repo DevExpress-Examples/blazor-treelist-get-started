@@ -7,7 +7,7 @@
         public DateTime StartDate { get; set; }
         public DateTime DueDate { get; set; }
         public int Progress { get; set; }
-
+        public EmployeeTask() { }
         public EmployeeTask(
             int id,
             int parentId,
