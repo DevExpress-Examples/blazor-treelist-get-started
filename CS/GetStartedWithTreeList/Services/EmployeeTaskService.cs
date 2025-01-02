@@ -7,7 +7,7 @@
                 new EmployeeTask(3, 1, "Prepare Marketing Plan", "Arthur Miller", new DateTime(2018, 4, 7), new DateTime(2018, 4, 14), 11),
                 new EmployeeTask(4, 0, "Create Action Plan to Improve Customer Engagement", "Robert Reagan", new DateTime(2017, 8, 8), new DateTime(2018, 4, 8), 23),
                 new EmployeeTask(5, 4, "Update Personnel Files", "Greta Sims", new DateTime(2017, 8, 8), new DateTime(2017, 10, 18), 100),
-                new EmployeeTask(6, 4, "Review Health Insurance Options ", "Brett Wade", new DateTime(2017, 9, 27), new DateTime(2017, 11, 10), 37),
+                new EmployeeTask(6, 4, "Review Health Insurance Options", "Brett Wade", new DateTime(2017, 9, 27), new DateTime(2017, 11, 10), 37),
                 new EmployeeTask(7, 4, "Choose Between PPO and HMO Health Plan", "Sandra Johnson", new DateTime(2017, 12, 13), new DateTime(2018, 3, 23), 17),
                 new EmployeeTask(8, 4, "Update Google Adwords Strategy", "Ed Holmes", new DateTime(2017, 8, 23), new DateTime(2017, 12, 23), 45),
                 new EmployeeTask(9, 4, "Create New Brochure Design", "Barb Banks", new DateTime(2018, 1, 3), new DateTime(2018, 3, 14), 17),
