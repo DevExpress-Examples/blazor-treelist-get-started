@@ -27,7 +27,7 @@ Refer to the following help topic for more information: [Getting Started with th
 
 - [Blazor TreeList - How to bind the component to DevExtreme data source with Entity Framework Core](https://github.com/DevExpress-Examples/blazor-treelist-bind-to-server-side-data)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-treelist-get-started&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-treelist-get-started&~~~was_helpful=no)
 
