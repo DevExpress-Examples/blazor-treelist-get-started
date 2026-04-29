@@ -1,0 +1,98 @@
+﻿@page "/treelist"
+
+<PageTitle>TreeList</PageTitle>
+
+<h1>TreeList</h1>
+
+<DxTreeList Data="TreeListData"
+            KeyFieldName="ID"
+            ParentKeyFieldName="RegionID"
+            ShowAllRows="true"
+            ColumnResizeMode="TreeListColumnResizeMode.NextColumn"
+            AutoExpandAllNodes="true"
+            ShowFilterRow="true"
+            FilterTreeMode="TreeListFilterTreeMode.ParentBranch"
+            EditModelSaving="TreeList_EditModelSaving"
+            DataItemDeleting="TreeList_DataItemDeleting"
+            CustomizeEditModel="TreeList_CustomizeEditModel">
+    <Columns>
+        <DxTreeListCommandColumn Width="150px" />
+        <DxTreeListDataColumn FieldName="Region" />
+        <DxTreeListDataColumn FieldName="MarchSales" DisplayFormat="c0" FilterRowValue="12000M"
+                              FilterRowOperatorType="TreeListFilterRowOperatorType.Greater" />
+        <DxTreeListDataColumn FieldName="SeptemberSales" DisplayFormat="c0" />
+        <DxTreeListDataColumn FieldName="MarchChange" DisplayFormat="p2" />
+        <DxTreeListDataColumn FieldName="SeptemberChange" DisplayFormat="p2" SortIndex="1" SortOrder="TreeListColumnSortOrder.Ascending" />
+        <DxTreeListDataColumn FieldName="MarketShare" DisplayFormat="p0" SortIndex="0" SortOrder="TreeListColumnSortOrder.Descending" />
+    </Columns>
+    <TotalSummary>
+        <DxTreeListSummaryItem FieldName="Region" SummaryType="TreeListSummaryItemType.Count" />
+        <DxTreeListSummaryItem FieldName="MarketShare" SummaryType="TreeListSummaryItemType.Avg" />
+    </TotalSummary>
+</DxTreeList>
+
+@code {
+    List<SalesByRegion>? TreeListData { get; set; }
+
+    void TreeList_CustomizeEditModel(TreeListCustomizeEditModelEventArgs e) {
+        if (e.IsNew) {
+            var newTask = (SalesByRegion)e.EditModel;
+            newTask.ID = TreeListData.Max(x => x.ID) + 1;
+            if (e.ParentDataItem != null)
+                newTask.RegionID = ((SalesByRegion)e.ParentDataItem).ID;
+        }
+    }
+    async Task TreeList_EditModelSaving(TreeListEditModelSavingEventArgs e) {
+        if (e.IsNew)
+            TreeListData.Add((SalesByRegion)e.EditModel);
+        else
+            e.CopyChangesToDataItem();
+    }
+    async Task TreeList_DataItemDeleting(TreeListDataItemDeletingEventArgs e) {
+        TreeListData.Remove((SalesByRegion)e.DataItem);
+    }
+
+    protected override void OnInitialized() {
+        int id = 0;
+        TreeListData = Regions
+            .Select(region => new { region.Key, region.Value, RegionId = ++id })
+            .SelectMany(region => new[] { GetSales(region.RegionId, 0, region.Key) }
+                .Concat(region.Value.Select(country => GetSales(++id, region.RegionId, country))))
+            .ToList();
+    }
+
+    SalesByRegion GetSales(int id, int regionId, string region) {
+        decimal march = Random.Shared.Next(2000, 30000);
+        decimal september = march * Random.Shared.Next(90, 110) / 100;
+        return new SalesByRegion {
+            ID = id,
+            RegionID = regionId,
+            Region = region,
+            MarchSales = march,
+            SeptemberSales = september,
+            MarchChange = Random.Shared.Next(100, 500) / 10000m,
+            SeptemberChange = Random.Shared.Next(100, 500) / 10000m,
+            MarketShare = Random.Shared.Next(10, 95) / 100.0
+        };
+    }
+
+    class SalesByRegion {
+        public int ID { get; set; }
+        public int RegionID { get; set; }
+        public string Region { get; set; }
+        public decimal MarchSales { get; set; }
+        public decimal SeptemberSales { get; set; }
+        public decimal MarchChange { get; set; }
+        public decimal SeptemberChange { get; set; }
+        public double MarketShare { get; set; }
+    }
+
+    static readonly Dictionary<string, string[]> Regions = new() {
+        ["Africa"] = ["South Africa", "Egypt"],
+        ["Asia"] = ["UAE", "Japan", "India"],
+        ["Australia"] = ["Australia"],
+        ["Europe"] = ["United Kingdom", "Germany", "Spain"],
+        ["North America"] = ["USA", "Canada", "Mexico"],
+        ["South America"] = ["Brazil", "Argentina", "Chile"]
+    };
+}
