@@ -14,10 +14,7 @@ Refer to the following help topic for more information: [Getting Started with th
 
 ## Files to Review
 
-- [Index.razor](./CS/GetStartedWithTreeList/Components/Pages/Index.razor)
-- [EmployeeTask.cs](./CS/GetStartedWithTreeList/Services/EmployeeTask.cs)
-- [EmployeeTaskService.cs](./CS/GetStartedWithTreeList/Services/EmployeeTaskService.cs)
-- [Program.cs](./CS/GetStartedWithTreeList/Program.cs)
+- [Index.razor](./CS/GetStartedWithTreeList/Components/Pages/Index/Index.razor)
 
 ## Documentation
 
