@@ -14,15 +14,19 @@ Refer to the following help topic for more information: [Getting Started with th
 
 ## Files to Review
 
-- [Index.razor](./CS/GetStartedWithTreeList/Components/Pages/Index/Index.razor)
+[Index.razor](./CS/GetStartedWithTreeList/Components/Pages/Index/Index.razor)
 
 ## Documentation
 
-- [Bind Blazor TreeList to Data](https://docs.devexpress.com/Blazor/404976/components/tree-list/bind-to-data)
+[Bind Blazor TreeList to Data](https://docs.devexpress.com/Blazor/404976/components/tree-list/bind-to-data)
+
+## Video
+
+[Blazor TreeList: Get Started](https://www.youtube.com/watch?v=1k8PZY0dlsU)
 
 ## More Examples
 
-- [Blazor TreeList - How to bind the component to DevExtreme data source with Entity Framework Core](https://github.com/DevExpress-Examples/blazor-treelist-bind-to-server-side-data)
+[Blazor TreeList - How to bind the component to DevExtreme data source with Entity Framework Core](https://github.com/DevExpress-Examples/blazor-treelist-bind-to-server-side-data)
 <!-- feedback -->
 ## Does This Example Address Your Development Requirements/Objectives?
 
